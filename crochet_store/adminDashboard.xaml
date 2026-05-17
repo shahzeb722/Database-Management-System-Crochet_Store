@@ -1,0 +1,303 @@
+﻿<Window x:Class="crochet_store.adminDashboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Admin Dashboard - Crochet Craft Store" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F7FA">
+
+    <Window.Resources>
+        <!-- Modern Button Style -->
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#2C3E50"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="20,15"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8"
+                                BorderThickness="0">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#000000" Opacity="0.1" 
+                                                BlurRadius="10" ShadowDepth="2"/>
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Left" 
+                                            VerticalAlignment="Center"
+                                            Margin="15,0,0,0"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#667EEA"/>
+                                <Setter Property="Foreground" Value="#FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Card Style for Panels -->
+        <Style x:Key="CardPanel" TargetType="Border">
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Padding" Value="25"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#000000" Opacity="0.08" 
+                                    BlurRadius="15" ShadowDepth="3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Main Container -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Sidebar -->
+        <Border Grid.Column="0" Background="#2C3E50" Padding="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Header Section -->
+                <StackPanel Grid.Row="0" Margin="20,30,20,40">
+                    <TextBlock Text="🧶 Crochet Craft" 
+                             FontSize="24" 
+                             FontWeight="Bold" 
+                             Foreground="#FFFFFF"
+                             HorizontalAlignment="Center"/>
+                    <TextBlock Text="Admin Dashboard" 
+                             FontSize="14" 
+                             Foreground="#95A5A6"
+                             HorizontalAlignment="Center"
+                             Margin="0,5,0,0"/>
+                </StackPanel>
+
+                <!-- Navigation Buttons -->
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <StackPanel Margin="20,0,20,20">
+                        <Button Name="btnManageEmployees" 
+                              Style="{StaticResource ModernButton}"
+                              Height="55"
+                              Click="btnManageEmployees_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="👥" FontSize="20" Margin="0,0,15,0"/>
+                                <TextBlock Text="Manage Employees" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Name="btnManageOrders" 
+                              Style="{StaticResource ModernButton}"
+                              Height="55"
+                              Click="btnManageOrders_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📦" FontSize="20" Margin="0,0,15,0"/>
+                                <TextBlock Text="Manage Orders" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Name="btnManageProducts" 
+                              Style="{StaticResource ModernButton}"
+                              Height="55"
+                              Click="btnManageProducts_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🧵" FontSize="20" Margin="0,0,15,0"/>
+                                <TextBlock Text="Manage Products" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Name="btnManageInventory" 
+                              Style="{StaticResource ModernButton}"
+                              Height="55"
+                              Click="btnManageInventory_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="📊" FontSize="20" Margin="0,0,15,0"/>
+                                <TextBlock Text="Manage Inventory" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Name="btnManageSuppliers" 
+                              Style="{StaticResource ModernButton}"
+                              Height="55"
+                              Click="btnManageSuppliers_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🏭" FontSize="20" Margin="0,0,15,0"/>
+                                <TextBlock Text="Manage Suppliers" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Name="btnManageShipments" 
+                              Style="{StaticResource ModernButton}"
+                              Height="55"
+                              Click="btnManageShipments_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🚚" FontSize="20" Margin="0,0,15,0"/>
+                                <TextBlock Text="Manage Shipments" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Name="btnManageCustomers" 
+                              Style="{StaticResource ModernButton}"
+                              Height="55"
+                              Click="btnManageCustomers_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="👤" FontSize="20" Margin="0,0,15,0"/>
+                                <TextBlock Text="Manage Customers" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Name="btnManageDelivery" 
+                              Style="{StaticResource ModernButton}"
+                              Height="55"
+                              Click="btnManageDelivery_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="🚀" FontSize="20" Margin="0,0,15,0"/>
+                                <TextBlock Text="Manage Delivery" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <!-- Footer -->
+                <StackPanel Grid.Row="2" Margin="20,20,20,30">
+                    <Separator Background="#34495E" Margin="0,0,0,15"/>
+                    <TextBlock Text="© 2024 Crochet Craft" 
+                             FontSize="11" 
+                             Foreground="#7F8C8D"
+                             HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Main Content Area -->
+        <Grid Grid.Column="1" Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Welcome Header -->
+            <Border Grid.Row="0" Style="{StaticResource CardPanel}" Margin="0,0,0,25">
+                <StackPanel>
+                    <TextBlock Text="Welcome to Admin Dashboard" 
+                             FontSize="28" 
+                             FontWeight="Bold" 
+                             Foreground="#2C3E50"/>
+                    <TextBlock Text="Manage your crochet store operations from here" 
+                             FontSize="14" 
+                             Foreground="#7F8C8D"
+                             Margin="0,8,0,0"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Main Content Panel -->
+            <Border Grid.Row="1" Style="{StaticResource CardPanel}">
+                <Grid>
+                    <!-- Quick Stats Grid -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" 
+                                 Text="Quick Overview" 
+                                 FontSize="20" 
+                                 FontWeight="SemiBold" 
+                                 Foreground="#2C3E50"
+                                 Margin="0,0,0,20"/>
+
+                        <!-- Stats Cards -->
+                        <UniformGrid Grid.Row="1" Columns="2" Rows="2" 
+                                   HorizontalAlignment="Stretch" 
+                                   VerticalAlignment="Top">
+
+                            <!-- Card 1 -->
+                            <Border Background="#667EEA" 
+                                  CornerRadius="10" 
+                                  Padding="25" 
+                                  Margin="0,0,15,15">
+                                <StackPanel>
+                                    <TextBlock Text="📈" FontSize="32" Margin="0,0,0,10"/>
+                                    <TextBlock Text="Total Orders" 
+                                             FontSize="14" 
+                                             Foreground="#E0E7FF" 
+                                             Margin="0,0,0,5"/>
+                                    <TextBlock Text="---" 
+                                             FontSize="28" 
+                                             FontWeight="Bold" 
+                                             Foreground="#FFFFFF"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Card 2 -->
+                            <Border Background="#F093FB" 
+                                  CornerRadius="10" 
+                                  Padding="25" 
+                                  Margin="0,0,0,15">
+                                <StackPanel>
+                                    <TextBlock Text="🧵" FontSize="32" Margin="0,0,0,10"/>
+                                    <TextBlock Text="Products" 
+                                             FontSize="14" 
+                                             Foreground="#FFE0FF" 
+                                             Margin="0,0,0,5"/>
+                                    <TextBlock Text="---" 
+                                             FontSize="28" 
+                                             FontWeight="Bold" 
+                                             Foreground="#FFFFFF"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Card 3 -->
+                            <Border Background="#4FACFE" 
+                                  CornerRadius="10" 
+                                  Padding="25" 
+                                  Margin="0,0,15,0">
+                                <StackPanel>
+                                    <TextBlock Text="👥" FontSize="32" Margin="0,0,0,10"/>
+                                    <TextBlock Text="Customers" 
+                                             FontSize="14" 
+                                             Foreground="#E0F4FF" 
+                                             Margin="0,0,0,5"/>
+                                    <TextBlock Text="---" 
+                                             FontSize="28" 
+                                             FontWeight="Bold" 
+                                             Foreground="#FFFFFF"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Card 4 -->
+                            <Border Background="#43E97B" 
+                                  CornerRadius="10" 
+                                  Padding="25">
+                                <StackPanel>
+                                    <TextBlock Text="💰" FontSize="32" Margin="0,0,0,10"/>
+                                    <TextBlock Text="Revenue" 
+                                             FontSize="14" 
+                                             Foreground="#E0FFE9" 
+                                             Margin="0,0,0,5"/>
+                                    <TextBlock Text="---" 
+                                             FontSize="28" 
+                                             FontWeight="Bold" 
+                                             Foreground="#FFFFFF"/>
+                                </StackPanel>
+                            </Border>
+                        </UniformGrid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,237 @@
+﻿<Window x:Class="crochet_store.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Crochet Craft Store - Welcome" 
+        Height="600" 
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#F5F7FA">
+
+    <Window.Resources>
+        <!-- Start Button Style -->
+        <Style x:Key="StartButton" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#667EEA" Offset="0"/>
+                        <GradientStop Color="#764BA2" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="40,15"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="30"
+                                BorderThickness="0">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#667EEA" Opacity="0.5" 
+                                                BlurRadius="20" ShadowDepth="5"/>
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#764BA2" Offset="0"/>
+                                            <GradientStop Color="#667EEA" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Feature Card Style -->
+        <Style x:Key="FeatureCard" TargetType="Border">
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#000000" Opacity="0.08" 
+                                    BlurRadius="15" ShadowDepth="3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Animated Background Pattern -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#F5F7FA" Offset="0"/>
+                <GradientStop Color="#E8ECF4" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Decorative Circles -->
+        <Ellipse Width="300" Height="300" 
+                 Fill="#F093FB" Opacity="0.1"
+                 HorizontalAlignment="Left" 
+                 VerticalAlignment="Top"
+                 Margin="-150,-150,0,0"/>
+
+        <Ellipse Width="250" Height="250" 
+                 Fill="#667EEA" Opacity="0.1"
+                 HorizontalAlignment="Right" 
+                 VerticalAlignment="Bottom"
+                 Margin="0,0,-125,-125"/>
+
+        <!-- Main Content -->
+        <StackPanel VerticalAlignment="Center" 
+                    HorizontalAlignment="Center"
+                    Margin="50">
+
+            <!-- Logo/Icon -->
+            <Border Background="#FFFFFF"
+                    CornerRadius="80"
+                    Width="120"
+                    Height="120"
+                    Margin="0,0,0,30"
+                    HorizontalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect Color="#667EEA" Opacity="0.3" 
+                                    BlurRadius="20" ShadowDepth="5"/>
+                </Border.Effect>
+                <TextBlock Text="🧶" 
+                         FontSize="60"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"/>
+            </Border>
+
+            <!-- Welcome Text -->
+            <TextBlock Text="Welcome to" 
+                     FontSize="24"
+                     FontWeight="Light"
+                     Foreground="#7F8C8D"
+                     HorizontalAlignment="Center"
+                     Margin="0,0,0,5"/>
+
+            <TextBlock Text="Crochet Craft Store" 
+                     FontSize="42"
+                     FontWeight="Bold"
+                     Foreground="#2C3E50"
+                     HorizontalAlignment="Center"
+                     Margin="0,0,0,10">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#667EEA" Opacity="0.2" 
+                                    BlurRadius="10" ShadowDepth="2"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBlock Text="Your Complete Business Management Solution" 
+                     FontSize="16"
+                     FontWeight="Normal"
+                     Foreground="#95A5A6"
+                     HorizontalAlignment="Center"
+                     Margin="0,0,0,40"/>
+
+            <!-- Start Button -->
+            <Button Style="{StaticResource StartButton}"
+                    Content="🚀 START"
+                    Click="Button_Click"
+                    Margin="0,0,0,40"/>
+
+            <!-- Features Grid -->
+            <UniformGrid Rows="1" Columns="3" 
+                        Width="700"
+                        Margin="0,20,0,0">
+
+                <!-- Feature 1 -->
+                <Border Style="{StaticResource FeatureCard}">
+                    <StackPanel>
+                        <TextBlock Text="📊" FontSize="32" 
+                                 HorizontalAlignment="Center"
+                                 Margin="0,0,0,10"/>
+                        <TextBlock Text="Manage Orders" 
+                                 FontSize="14"
+                                 FontWeight="SemiBold"
+                                 Foreground="#2C3E50"
+                                 HorizontalAlignment="Center"
+                                 Margin="0,0,0,5"/>
+                        <TextBlock Text="Track and Process"
+                                 FontSize="11"
+                                 Foreground="#7F8C8D"
+                                 HorizontalAlignment="Center"
+                                 TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Feature 2 -->
+                <Border Style="{StaticResource FeatureCard}">
+                    <StackPanel>
+                        <TextBlock Text="🧵" FontSize="32" 
+                                 HorizontalAlignment="Center"
+                                 Margin="0,0,0,10"/>
+                        <TextBlock Text="Inventory Control" 
+                                 FontSize="14"
+                                 FontWeight="SemiBold"
+                                 Foreground="#2C3E50"
+                                 HorizontalAlignment="Center"
+                                 Margin="0,0,0,5"/>
+                        <TextBlock Text="Stock Management" 
+                                 FontSize="11"
+                                 Foreground="#7F8C8D"
+                                 HorizontalAlignment="Center"
+                                 TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Feature 3 -->
+                <Border Style="{StaticResource FeatureCard}">
+                    <StackPanel>
+                        <TextBlock Text="👥" FontSize="32" 
+                                 HorizontalAlignment="Center"
+                                 Margin="0,0,0,10"/>
+                        <TextBlock Text="Customer Care" 
+                                 FontSize="14"
+                                 FontWeight="SemiBold"
+                                 Foreground="#2C3E50"
+                                 HorizontalAlignment="Center"
+                                 Margin="0,0,0,5"/>
+                        <TextBlock Text="Manage Relations" 
+                                 FontSize="11"
+                                 Foreground="#7F8C8D"
+                                 HorizontalAlignment="Center"
+                                 TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <!-- Footer Text -->
+            <TextBlock Text="© 2024 Crochet Craft Store. All rights reserved." 
+                     FontSize="10"
+                     Foreground="#BDC3C7"
+                     HorizontalAlignment="Center"
+                     Margin="0,30,0,0"/>
+        </StackPanel>
+
+        <!-- Version Badge -->
+        <Border Background="#667EEA"
+                CornerRadius="15"
+                Padding="12,6"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="0,0,20,20">
+            <TextBlock Text="v1.0" 
+                     FontSize="11"
+                     FontWeight="SemiBold"
+                     Foreground="#FFFFFF"/>
+        </Border>
+    </Grid>
+</Window>
